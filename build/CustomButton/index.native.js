@@ -1,23 +1,17 @@
 import * as React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
-var styles = StyleSheet.create({
-    viewContainer: {
-        backgroundColor: '#fff',
-    }
-});
-;
-var defaultProps = {
-    customContainerClass: {},
-    buttonColor: 'blue',
-    disabled: false
+import { Banner } from 'react-native-paper';
+var ButtonNative = function () {
+    var _a = React.useState(true), visible = _a[0], setVisible = _a[1];
+    return (React.createElement(Banner, { visible: visible, actions: [
+            {
+                label: 'Fix it',
+                onPress: function () { return setVisible(false); },
+            },
+            {
+                label: 'Learn more',
+                onPress: function () { return setVisible(false); },
+            },
+        ] }, "There was a problem processing a transaction on your credit card."));
 };
-var ButtonNative = function (props) {
-    var handlePress = function () {
-        props.onClick ? props.onClick() : null;
-    };
-    var title = props.text || 'Native Button';
-    return (React.createElement(View, { style: [styles.viewContainer, props.customContainerClass] }, props.children ? props.children : React.createElement(Button, { title: title, onPress: handlePress, color: props.buttonColor })));
-};
-ButtonNative.defaultProps = defaultProps;
 export default ButtonNative;
 //# sourceMappingURL=index.native.js.map

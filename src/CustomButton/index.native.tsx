@@ -1,41 +1,26 @@
 import * as React from 'react';
-import {View, Button, StyleSheet} from 'react-native'
+import { Banner } from 'react-native-paper';
 
-const styles = StyleSheet.create({
-    viewContainer: {
-      backgroundColor: '#fff',
-    }
-  });
-
-  interface Iprops {
-      text?: string
-      onClick?: () => void
-      customContainerClass?: object
-      buttonColor?: string
-      disabled?: boolean
-  };
-
-  const defaultProps: Iprops = {
-      customContainerClass: {},
-      buttonColor: 'blue',
-      disabled: false
-  }
-
-const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
-
-    const handlePress = () => {
-        props.onClick ? props.onClick() : null
-    }
-
-    const title = props.text || 'Native Button'
+const ButtonNative : React.FunctionComponent = () => {
+    const [visible, setVisible] = React.useState(true);
 
     return (
-        <View style={[styles.viewContainer, props.customContainerClass]}>
-            {props.children ? props.children : <Button title={title} onPress={handlePress} color={props.buttonColor} />}
-        </View>
+        <Banner
+        visible={visible}
+        actions={[
+          {
+            label: 'Fix it',
+            onPress: () => setVisible(false),
+          },
+          {
+            label: 'Learn more',
+            onPress: () => setVisible(false),
+          },
+        ]}
+       >
+        There was a problem processing a transaction on your credit card.
+      </Banner>
     )
 }
-
-ButtonNative.defaultProps = defaultProps;
 
 export default ButtonNative;

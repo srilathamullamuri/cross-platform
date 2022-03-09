@@ -1,41 +1,26 @@
 import * as React from 'react';
-import { View, Button, StyleSheet} from 'react-native'
+import { Banner } from 'react-native-paper';
 
-const styles = StyleSheet.create({
-  viewContainer: {
-    backgroundColor: '#fff',
-  }
-});
-
-interface Iprops {
-    text?: string
-    onClick?: () => void
-    customContainerClass?: object
-    buttonColor?: string
-    disabled?: boolean
-};
-
-const defaultProps: Iprops = {
-    customContainerClass: {},
-    buttonColor: 'blue',
-    disabled: false
-}
-
-const ButtonWeb : React.FunctionComponent<Iprops> = (props) => {
-
-    const handlePress = () => {
-        props.onClick ? props.onClick() : null
-    }
-
-    const title = props.text || 'Web Button'
+const ButtonWeb : React.FunctionComponent = () => {
+    const [visible, setVisible] = React.useState(true);
 
     return (
-        <View style={[styles.viewContainer, props.customContainerClass]}>
-            {props.children ? props.children : <Button title={title} onPress={handlePress} color={props.buttonColor} disabled={props.disabled}/>}
-        </View>
+        <Banner
+        visible={visible}
+        actions={[
+          {
+            label: 'Fix it',
+            onPress: () => setVisible(false),
+          },
+          {
+            label: 'Learn more',
+            onPress: () => setVisible(false),
+          },
+        ]}
+       >
+        There was a problem processing a transaction on your credit card.
+      </Banner>
     )
 }
-
-ButtonWeb.defaultProps = defaultProps;
 
 export default ButtonWeb;
