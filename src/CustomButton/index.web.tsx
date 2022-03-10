@@ -1,24 +1,32 @@
 import * as React from 'react';
 import { Banner } from 'react-native-paper';
 
-const ButtonWeb : React.FunctionComponent = () => {
+interface Iprops {
+  hideBanner?: () => void;
+  message?: string;
+}
+const ButtonWeb : React.FunctionComponent<Iprops> = (props) => {
     const [visible, setVisible] = React.useState(true);
 
     return (
         <Banner
+        style={{borderColor: 'black'}}
         visible={visible}
         actions={[
           {
-            label: 'Fix it',
-            onPress: () => setVisible(false),
+            label: 'Dont show me this again',
+            onPress: () => {
+              props.hideBanner ? props.hideBanner() : null
+              setVisible(false)
+            },
           },
           {
-            label: 'Learn more',
+            label: 'Dismiss',
             onPress: () => setVisible(false),
           },
         ]}
        >
-        There was a problem processing a transaction on your credit card.
+        {props.message ? props.message : 'No message to show'}
       </Banner>
     )
 }

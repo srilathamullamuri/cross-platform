@@ -1,17 +1,20 @@
 import * as React from 'react';
 import { Banner } from 'react-native-paper';
-var ButtonWeb = function () {
+var ButtonWeb = function (props) {
     var _a = React.useState(true), visible = _a[0], setVisible = _a[1];
-    return (React.createElement(Banner, { visible: visible, actions: [
+    return (React.createElement(Banner, { style: { borderColor: 'black' }, visible: visible, actions: [
             {
-                label: 'Fix it',
-                onPress: function () { return setVisible(false); },
+                label: 'Dont show me this again',
+                onPress: function () {
+                    props.hideBanner ? props.hideBanner() : null;
+                    setVisible(false);
+                },
             },
             {
-                label: 'Learn more',
+                label: 'Dismiss',
                 onPress: function () { return setVisible(false); },
             },
-        ] }, "There was a problem processing a transaction on your credit card."));
+        ] }, props.message ? props.message : 'No message to show'));
 };
 export default ButtonWeb;
 //# sourceMappingURL=index.web.js.map
