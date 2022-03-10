@@ -7,6 +7,10 @@ interface Iprops {
 }
 const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
     const [visible, setVisible] = React.useState(true);
+    
+    const handlePress = () => {
+      props.hideBanner ? props.hideBanner() : null
+    }
 
     return (
         <Banner
@@ -15,10 +19,7 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
         actions={[
           {
             label: 'Dont show me this again',
-            onPress: () => {
-              props.hideBanner ? props.hideBanner() : null
-              setVisible(false)
-            },
+            onPress: () => handlePress(),
           },
           {
             label: 'Dismiss',
