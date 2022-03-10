@@ -9,6 +9,7 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
     const [visible, setVisible] = React.useState(true);
     
     const handlePress = () => {
+      setVisible(false);
       props.hideBanner ? props.hideBanner() : null
     }
 

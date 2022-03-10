@@ -3,6 +3,7 @@ import { Banner } from 'react-native-paper';
 var ButtonNative = function (props) {
     var _a = React.useState(true), visible = _a[0], setVisible = _a[1];
     var handlePress = function () {
+        setVisible(false);
         props.hideBanner ? props.hideBanner() : null;
     };
     return (React.createElement(Banner, { style: { borderColor: 'black' }, visible: visible, actions: [
