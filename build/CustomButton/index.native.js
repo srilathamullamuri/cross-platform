@@ -7,7 +7,7 @@ var ButtonNative = function (props) {
         props.hideBanner ? props.hideBanner() : null;
     };
     var handleDismiss = function () {
-        setVisible(false);
+        // setVisible(false);
         props.dismiss ? props.dismiss() : null;
     };
     return (React.createElement(Banner, { style: { borderColor: 'black' }, visible: visible, actions: [

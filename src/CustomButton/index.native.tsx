@@ -15,7 +15,7 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
     }
 
     const handleDismiss = () => {
-      setVisible(false);
+      // setVisible(false);
       props.dismiss ? props.dismiss() : null
     }
 
