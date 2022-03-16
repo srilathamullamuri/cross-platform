@@ -3,6 +3,7 @@ import { Banner } from 'react-native-paper';
 
 interface Iprops {
   hideBanner?: () => void;
+  dismiss?: () => void;
   message?: string;
 }
 const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
@@ -11,6 +12,11 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
     const handlePress = () => {
       setVisible(false);
       props.hideBanner ? props.hideBanner() : null
+    }
+
+    const handleDismiss = () => {
+      setVisible(false);
+      props.dismiss ? props.dismiss() : null
     }
 
     return (
@@ -24,7 +30,7 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
           },
           {
             label: 'Dismiss',
-            onPress: () => setVisible(false),
+            onPress: () => handleDismiss(),
           },
         ]}
        >

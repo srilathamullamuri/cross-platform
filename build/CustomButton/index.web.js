@@ -6,6 +6,10 @@ var ButtonWeb = function (props) {
         setVisible(false);
         props.hideBanner ? props.hideBanner() : null;
     };
+    var handleDismiss = function () {
+        setVisible(false);
+        props.dismiss ? props.dismiss() : null;
+    };
     return (React.createElement(Banner, { style: { borderColor: 'black' }, visible: visible, actions: [
             {
                 label: 'Dont show me this again',
@@ -13,7 +17,7 @@ var ButtonWeb = function (props) {
             },
             {
                 label: 'Dismiss',
-                onPress: function () { return setVisible(false); },
+                onPress: function () { return handleDismiss(); },
             },
         ] }, props.message ? props.message : 'No message to show'));
 };
