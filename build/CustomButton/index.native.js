@@ -13,7 +13,7 @@ var ButtonNative = function (props) {
         props.dismiss ? props.dismiss() : null;
     };
     return (React.createElement(View, null,
-        React.createElement(WebView, { source: { html: '<h1>This is a static HTML source!</h1>' } }),
+        React.createElement(WebView, { style: { height: 100 }, source: { html: '<h1>This is a static HTML source!</h1>' } }),
         React.createElement(Banner, { style: { borderColor: 'black' }, visible: visible, actions: [
                 {
                     label: 'Dont show me this again',

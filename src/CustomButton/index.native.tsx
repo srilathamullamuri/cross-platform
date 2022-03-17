@@ -24,6 +24,7 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
     return (
       <View>
         <WebView
+          style={{height: 100}}
           source={{html: '<h1>This is a static HTML source!</h1>'}}
         />
         <Banner
