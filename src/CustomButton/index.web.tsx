@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Banner } from 'react-native-paper';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Linking} from 'react-native';
 
 
 interface Iprops {

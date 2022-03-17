@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Linking } from 'react-native';
 import { Banner } from 'react-native-paper';
 var ButtonNative = function (props) {
     var _a = React.useState(true), visible = _a[0], setVisible = _a[1];
