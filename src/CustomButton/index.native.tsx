@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {View} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import { Banner } from 'react-native-paper';
-import {WebView} from 'react-native-webview';
 
 interface Iprops {
   hideBanner?: () => void;
@@ -23,10 +22,10 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
 
     return (
       <View>
-        <WebView
+        {/* <WebView
           style={{height: 100}}
           source={{html: '<h1>This is a static HTML source!</h1>'}}
-        />
+        /> */}
         <Banner
         style={{borderColor: 'black'}}
         visible={visible}
@@ -40,9 +39,13 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
             onPress: () => handleDismiss(),
           },
         ]}
-       > 
-        {props.message ? props.message : 'No message to show'}
-      </Banner>
+       >
+        <View>
+          <Image style = {{ width: 100, height: 100 }} resizeMode={'stretch'} defaultSource={{uri :  'https://sso.vconsultnetwork.com/omniweb/images/logo.png'}} source={{uri: 'https://sso.vconsultnetwork.com/omniweb/images/logo.png'}} />
+          <Text>There was a problem processing a transaction on your credit card.</Text>
+        </View>
+         </Banner> 
+      
       </View>
     )
 }

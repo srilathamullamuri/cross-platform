@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { Banner } from 'react-native-paper';
-import { WebView } from 'react-native-webview';
 var ButtonNative = function (props) {
     var _a = React.useState(true), visible = _a[0], setVisible = _a[1];
     var handlePress = function () {
@@ -13,7 +12,6 @@ var ButtonNative = function (props) {
         props.dismiss ? props.dismiss() : null;
     };
     return (React.createElement(View, null,
-        React.createElement(WebView, { style: { height: 100 }, source: { html: '<h1>This is a static HTML source!</h1>' } }),
         React.createElement(Banner, { style: { borderColor: 'black' }, visible: visible, actions: [
                 {
                     label: 'Dont show me this again',
@@ -23,7 +21,10 @@ var ButtonNative = function (props) {
                     label: 'Dismiss',
                     onPress: function () { return handleDismiss(); },
                 },
-            ] }, props.message ? props.message : 'No message to show')));
+            ] },
+            React.createElement(View, null,
+                React.createElement(Image, { style: { width: 100, height: 100 }, resizeMode: 'stretch', defaultSource: { uri: 'https://sso.vconsultnetwork.com/omniweb/images/logo.png' }, source: { uri: 'https://sso.vconsultnetwork.com/omniweb/images/logo.png' } }),
+                React.createElement(Text, null, "There was a problem processing a transaction on your credit card.")))));
 };
 export default ButtonNative;
 //# sourceMappingURL=index.native.js.map
