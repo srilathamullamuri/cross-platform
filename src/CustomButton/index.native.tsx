@@ -1,5 +1,7 @@
 import * as React from 'react';
+import {View} from 'react-native';
 import { Banner } from 'react-native-paper';
+import {WebView} from 'react-native-webview';
 
 interface Iprops {
   hideBanner?: () => void;
@@ -20,6 +22,10 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
     }
 
     return (
+      <View>
+        <WebView
+          source={{html: '<h1>This is a static HTML source!</h1>'}}
+        />
         <Banner
         style={{borderColor: 'black'}}
         visible={visible}
@@ -33,9 +39,10 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
             onPress: () => handleDismiss(),
           },
         ]}
-       >
+       > 
         {props.message ? props.message : 'No message to show'}
       </Banner>
+      </View>
     )
 }
 
