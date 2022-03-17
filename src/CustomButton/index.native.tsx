@@ -6,6 +6,8 @@ interface Iprops {
   hideBanner?: () => void;
   dismiss?: () => void;
   message?: string;
+  image?: string;
+  link?: string;
 }
 const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
     const [visible, setVisible] = React.useState(true);
@@ -41,11 +43,11 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
         ]}
        >
         <View>
-          <Image style = {{ width: 100, height: 100 }} resizeMode={'stretch'} source={{uri: 'https://sso.vconsultnetwork.com/omniweb/images/logo.png'}} />
-          <Text>There was a problem processing a transaction on your credit card.</Text>
+          {props.image && <Image style = {{ width: 100, height: 100 }} resizeMode={'stretch'} source={{uri: props.image}} />}
+          {props.message && <Text>{props.message}</Text>}
+          {props.link && <Text onPress={() => Linking.openURL(props.link)}>{props.link}</Text>}
         </View>
          </Banner> 
-      
       </View>
     )
 }

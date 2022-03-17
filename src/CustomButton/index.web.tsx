@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { Banner } from 'react-native-paper';
-import {WebView} from 'react-native-webview';
-import {View} from 'react-native';
+import {View, Text, Image} from 'react-native';
+
 
 interface Iprops {
   hideBanner?: () => void;
   dismiss?: () => void;
   message?: string;
+  image?: string;
+  link?: string;
 }
 const ButtonWeb : React.FunctionComponent<Iprops> = (props) => {
     const [visible, setVisible] = React.useState(true);
@@ -24,9 +26,6 @@ const ButtonWeb : React.FunctionComponent<Iprops> = (props) => {
 
     return (
       <View>
-      <WebView
-        source={{html: '<h1>This is a static HTML source!</h1>'}}
-      />
         <Banner
         style={{borderColor: 'black'}}
         visible={visible}
@@ -41,7 +40,11 @@ const ButtonWeb : React.FunctionComponent<Iprops> = (props) => {
           },
         ]}
        >
-        {props.message ? props.message : 'No message to show'}
+        <View>
+          {props.image && <Image style = {{ width: 100, height: 100 }} resizeMode={'stretch'} source={{uri: props.image}} />}
+          {props.message && <Text>{props.message}</Text>}
+          {props.link && <Text onPress={() => Linking.openURL(props.link)}>{props.link}</Text>}
+        </View>
       </Banner>
       </View>
     )

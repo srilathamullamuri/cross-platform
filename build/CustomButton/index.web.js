@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Banner } from 'react-native-paper';
-import { WebView } from 'react-native-webview';
-import { View } from 'react-native';
+import { View, Text, Image } from 'react-native';
 var ButtonWeb = function (props) {
     var _a = React.useState(true), visible = _a[0], setVisible = _a[1];
     var handlePress = function () {
@@ -13,7 +12,6 @@ var ButtonWeb = function (props) {
         props.dismiss ? props.dismiss() : null;
     };
     return (React.createElement(View, null,
-        React.createElement(WebView, { source: { html: '<h1>This is a static HTML source!</h1>' } }),
         React.createElement(Banner, { style: { borderColor: 'black' }, visible: visible, actions: [
                 {
                     label: 'Dont show me this again',
@@ -23,7 +21,11 @@ var ButtonWeb = function (props) {
                     label: 'Dismiss',
                     onPress: function () { return handleDismiss(); },
                 },
-            ] }, props.message ? props.message : 'No message to show')));
+            ] },
+            React.createElement(View, null,
+                props.image && React.createElement(Image, { style: { width: 100, height: 100 }, resizeMode: 'stretch', source: { uri: props.image } }),
+                props.message && React.createElement(Text, null, props.message),
+                props.link && React.createElement(Text, { onPress: function () { return Linking.openURL(props.link); } }, props.link)))));
 };
 export default ButtonWeb;
 //# sourceMappingURL=index.web.js.map
