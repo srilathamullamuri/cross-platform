@@ -12,7 +12,7 @@ var ButtonNative = function (props) {
         props.dismiss ? props.dismiss() : null;
     };
     return (React.createElement(View, null,
-        React.createElement(Banner, { style: { borderColor: 'black' }, visible: visible, actions: [
+        React.createElement(Banner, { style: { borderColor: 'black', justifyContent: 'space-between' }, visible: visible, actions: [
                 {
                     label: 'Dont show me this again',
                     onPress: function () { return handlePress(); },
@@ -25,7 +25,7 @@ var ButtonNative = function (props) {
             React.createElement(View, null,
                 props.image && React.createElement(Image, { style: { width: 100, height: 100 }, resizeMode: 'stretch', source: { uri: props.image } }),
                 props.message && React.createElement(Text, null, props.message),
-                props.link && React.createElement(Text, { onPress: function () { return Linking.openURL(props.link); } }, props.link)))));
+                props.link && React.createElement(Text, { style: { color: '#237aff', textDecorationLine: 'underline' }, onPress: function () { return Linking.openURL(props.link); } }, props.link)))));
 };
 export default ButtonNative;
 //# sourceMappingURL=index.native.js.map

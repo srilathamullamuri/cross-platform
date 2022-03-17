@@ -27,7 +27,7 @@ const ButtonWeb : React.FunctionComponent<Iprops> = (props) => {
     return (
       <View>
         <Banner
-        style={{borderColor: 'black'}}
+        style={{borderColor: 'black', justifyContent: 'space-between'}}
         visible={visible}
         actions={[
           {
@@ -43,7 +43,7 @@ const ButtonWeb : React.FunctionComponent<Iprops> = (props) => {
         <View>
           {props.image && <Image style = {{ width: 100, height: 100 }} resizeMode={'stretch'} source={{uri: props.image}} />}
           {props.message && <Text>{props.message}</Text>}
-          {props.link && <Text onPress={() => Linking.openURL(props.link)}>{props.link}</Text>}
+          {props.link && <Text style={{color: '#237aff', textDecorationLine: 'underline'}} onPress={() => Linking.openURL(props.link)}>{props.link}</Text>}
         </View>
       </Banner>
       </View>
