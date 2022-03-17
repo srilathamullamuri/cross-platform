@@ -23,7 +23,7 @@ var ButtonNative = function (props) {
                 },
             ] },
             React.createElement(View, null,
-                React.createElement(Image, { style: { width: 100, height: 100 }, resizeMode: 'stretch', defaultSource: { uri: 'https://sso.vconsultnetwork.com/omniweb/images/logo.png' }, source: { uri: 'https://sso.vconsultnetwork.com/omniweb/images/logo.png' } }),
+                React.createElement(Image, { style: { width: 100, height: 100 }, resizeMode: 'stretch', source: { uri: 'https://sso.vconsultnetwork.com/omniweb/images/logo.png' } }),
                 React.createElement(Text, null, "There was a problem processing a transaction on your credit card.")))));
 };
 export default ButtonNative;

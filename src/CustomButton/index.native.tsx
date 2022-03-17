@@ -41,7 +41,7 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
         ]}
        >
         <View>
-          <Image style = {{ width: 100, height: 100 }} resizeMode={'stretch'} defaultSource={{uri :  'https://sso.vconsultnetwork.com/omniweb/images/logo.png'}} source={{uri: 'https://sso.vconsultnetwork.com/omniweb/images/logo.png'}} />
+          <Image style = {{ width: 100, height: 100 }} resizeMode={'stretch'} source={{uri: 'https://sso.vconsultnetwork.com/omniweb/images/logo.png'}} />
           <Text>There was a problem processing a transaction on your credit card.</Text>
         </View>
          </Banner> 
