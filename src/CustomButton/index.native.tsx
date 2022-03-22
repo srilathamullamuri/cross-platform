@@ -44,7 +44,6 @@ const ButtonNative : React.FunctionComponent<Iprops> = (props) => {
           },
         ]}
        >
-         
         <View>
           {props.video && <VideoPlayer
             video={{ uri: props.video }}
